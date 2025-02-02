@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+   --breakpoint-xs: 400px;
+   --color-primary: #b9ff66;
+   --color-dark: #191a23;
+   --color-light: #f3f3f3;
+   --animate-scroll-left: scroll-left 10s linear infinite;
+   --animate-scroll-right: scroll-right 10s linear infinite;
+
+   @keyframes scroll-left {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-108%);
+      }
+   }
+   @keyframes scroll-right {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(108%);
+      }
+   }
+}
+
+@layer base {
+   * {
+      font-family: "Space Grotesk", Arial;
+   }
+
+   button {
+      cursor: pointer;
+   }
+}
+
+@utility paragraph {
+   @apply xs:text-base text-[14px] sm:text-lg;
+}
+
+@utility heading-1 {
+   @apply xs:text-[43px] text-4xl sm:text-6xl;
+}
+
+@utility heading-2 {
+   @apply xs:text-4xl text-2xl sm:text-[40px];
+}
+
+@utility heading-3 {
+   @apply xs:text-[26px] text-xl sm:text-3xl;
+}
+
+@utility heading-4 {
+   @apply xs:text-lg text-base sm:text-xl;
+}
+
+@utility hide-scrollbar {
+   &::-webkit-scrollbar {
+      display: none;
+   }
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+}
+
+@utility pause-animation {
+   animation-play-state: paused;
+   -o-animation-play-state: paused;
+   -moz-animation-play-state: paused;
+   -webkit-animation-play-state: paused;
+}
+
+@utility mask-image {
+   mask-image: url("assets/svg/vector.svg");
+   -webkit-mask-image: url("assets/svg/vector.svg");
+   mask-position: center;
+   -webkit-mask-position: center;
+   mask-size: cover;
+   -webkit-mask-size: cover;
+}
+
+#testimonialsCarousel .slick-slider {
+   @apply pb-14 lg:pb-[124px];
+}
+
+#testimonialsCarousel .slick-track {
+   @apply grid grid-flow-col;
+}
+
+#testimonialsCarousel .slick-dots {
+   @apply -bottom-[22px] flex items-center justify-center gap-4 sm:gap-[19px];
+}
+
+#testimonialsCarousel .slick-dots > li {
+   @apply m-0 grid place-items-center;
+}
+
+#testimonialsCarousel .slick-dots li.slick-active div svg {
+   @apply fill-primary;
+}
+
+#testimonialsCarousel .slick-slide > div {
+   @apply lg:mx-[25px];
+}
